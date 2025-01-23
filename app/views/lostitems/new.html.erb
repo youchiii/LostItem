@@ -1,2 +1,20 @@
-<h1>Lostitems#new</h1>
-<p>Find me in app/views/lostitems/new.html.erb</p>
+<h1>失くし物の登録</h1>
+<table>
+    <%= form_for(@lostitems, utl:{controller: 'lostitems', action:'create'}) do |form| %>
+    <tr>
+        <th>失くし物の名前</th>
+        <td><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+        <th>カテゴリー</th>
+        <td><<%= form.select :category, [["電子機器","電子機器"],["アクセサリー","アクセサリー"],["財布","財布"]], include_blank: "選択してください" %>/td>
+    </tr>
+    <tr>
+        <th>失くし物の詳細</th>
+        <td><%= text_area_tag (:description, "content"), size: "colsxrols" %></td>
+    </tr>
+    <tr>
+        <th>失くした場所</th>
+        <td><%= form.text_field :lost_location %></td>
+    </tr>
+</table>

@@ -1,9 +1,16 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# User のデータを作成
+user = User.create!(name: "Test User", email: "test@example.com")
+
+# LostItem のデータを作成
+LostItem.create!(
+  name: "Lost Wallet",
+  category: "Personal Belongings",
+  description: "Black leather wallet with ID and credit cards.",
+  lost_date: Date.today - 3,
+  lost_location: "Central Park",
+  status: "Lost",
+  image: "wallet_image.jpg",
+  user: user # 作成したユーザーを紐付ける
+)
